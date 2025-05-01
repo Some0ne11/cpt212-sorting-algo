@@ -5,9 +5,10 @@ public class Sorting{
     public static void Sorting(int [] S)
     {
         // Assume all elements of array are positive integer with same length
-        // Convert the first element of array into a string to find the length of the string,
+        // Find the maximum value in the array, convert it into a string to find the length of the string,
         // and get the number of digits in the original number
-        int k = Integer.toString(S[0]).length();
+        int max = Arrays.stream(numbers).max().getAsInt();
+        int k = Integer.toString(max).length();
 
         // 1. Initialize
         // Create two arrays Array1 and Array2 of size 10 (for digits 0 to 9)
