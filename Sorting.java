@@ -7,7 +7,7 @@ public class Sorting{
         // Assume all elements of array are positive integer with same length
         // Find the maximum value in the array, convert it into a string to find the length of the string,
         // and get the number of digits in the original number
-        int max = Arrays.stream(numbers).max().getAsInt();
+        int max = Arrays.stream(S).max().getAsInt();
         int k = Integer.toString(max).length();
 
         // 1. Initialize
