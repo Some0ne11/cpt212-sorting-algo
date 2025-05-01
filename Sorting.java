@@ -73,8 +73,7 @@ public class Sorting{
         }
         System.out.println();
     }
-
-
+    
     public static void main(String[]args){
         int[] S = {275, 87, 426, 61, 409, 170, 677, 503};
         System.out.println("Original array: " + Arrays.toString(S));
