@@ -3,7 +3,7 @@ import java.util.Arrays;
 
 public class SortingCounter {
     public static void SortingCount(int[] S) {
-        int counter = 0;        // Counter for primitive operations
+        int counter = 0;                                        // Counter for primitive operations
 
         // Get max and digit length
         int max = Arrays.stream(S).max().getAsInt();            // stream + max + getAsInt
