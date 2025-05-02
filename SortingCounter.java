@@ -3,6 +3,9 @@ import java.util.Arrays;
 
 public class SortingCounter {
     public static void SortingCount(int[] S) {
+
+        int passes = 0;                                         // To calculate the number of passes
+
         int counter = 0;                                        // Counter for primitive operations
 
         // Get max and digit length
@@ -37,7 +40,8 @@ public class SortingCounter {
             Array1[i].add(x);           // add()
             counter++;                  // loop iteration
         }
-        printBuckets(Array1, 1);
+        passes++;
+        printBuckets(Array1, 1, passes);
 
         // Assign the roles of source and destination to Array1 and Array2
         ArrayList<Integer>[] source = Array1;
@@ -46,6 +50,7 @@ public class SortingCounter {
         counter++;
 
         for (int i=1; i<k; i++){
+            passes++;
             int divisor = (int)Math.pow(10,i);      // exponentiation
             counter += 2;
 
@@ -64,7 +69,7 @@ public class SortingCounter {
                 counter++;                          // outer loop iteration
             }
 
-            printBuckets(destination, (i % 2 == 0) ? 1 : 2);
+            printBuckets(destination, (i % 2 == 0) ? 1 : 2, passes);
 
             // Clear the source for the next iteration use
             for(ArrayList<Integer> bucket:source){
@@ -96,7 +101,8 @@ public class SortingCounter {
     }
 
     // Helper function to print out the content of arrays
-    public static void printBuckets(ArrayList<Integer>[] buckets, int round) {
+    public static void printBuckets(ArrayList<Integer>[] buckets, int round, int passes) {
+        System.out.println("=== Pass "+passes+" ===");
         System.out.println("Array " + round + ":");
         for (int i = 0; i < buckets.length; i++) {
             System.out.println("  Bucket " + i + ": " + buckets[i]);

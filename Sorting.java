@@ -4,6 +4,7 @@ import java.util.Arrays;
 public class Sorting{
     public static void Sorting(int [] S)
     {
+        int passes = 0;
         // Assume all elements of array are positive integer with same length
         // Find the maximum value in the array, convert it into a string to find the length of the string,
         // and get the number of digits in the original number
@@ -25,12 +26,14 @@ public class Sorting{
             int i = x % 10; 
             Array1[i].add(x);
         }
-        printBuckets(Array1, 1);
+        passes++;
+        printBuckets(Array1, 1, passes);
         // Assign the roles of source and destination to Array1 and Array2
         ArrayList<Integer>[] source = Array1;
         ArrayList<Integer>[] destination = Array2;
 
         for (int i=1; i<k; i++){
+            passes++;
             int divisor = (int)Math.pow(10,i);
 
             // For each number in the source array, move the numbers from source to destination 
@@ -43,7 +46,7 @@ public class Sorting{
                 }
             }
             
-            printBuckets(destination, (i % 2 == 0) ? 1 : 2);
+            printBuckets(destination, (i % 2 == 0) ? 1 : 2, passes);
 
             // Clear the source for the next iteration use
             for(ArrayList<Integer> bucket:source){
@@ -67,7 +70,8 @@ public class Sorting{
     }
 
     // Helper function to print out the content of arrays
-    public static void printBuckets(ArrayList<Integer>[] buckets, int round) {
+    public static void printBuckets(ArrayList<Integer>[] buckets, int round, int passes) {
+        System.out.println("=== Pass "+passes+" ===");
         System.out.println("Array " + round + ":");
         for (int i = 0; i < buckets.length; i++) {
             System.out.println("  Bucket " + i + ": " + buckets[i]);
