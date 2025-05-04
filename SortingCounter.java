@@ -5,7 +5,6 @@ public class SortingCounter {
     public static void SortingCount(int[] S) {
 
         int passes = 0;                                     // To calculate the number of passes
-
         int counter = 0;                                    // Counter for primitive operations
 
         // Get max and digit length
@@ -36,24 +35,29 @@ public class SortingCounter {
         // 2. Iteration
         // Move numbers from S to Array1 based on least significant digit
         for (int x:S){
+            counter += 3;                                   // TODO <counter> for loop
+
             int i = x % 10;
-            counter++;
-            Array1[i].add(x);           // add()
-            counter++;                  // loop iteration
+            counter += 2;                                   // <counter> assignment + arithmetic
+
+            Array1[i].add(x);
+            counter += 2;                                   // <counter> array lookup + function call
         }
         passes++;
+        counter++;                                          // <counter> function call
         printBuckets(Array1, 1, passes);
 
         // Assign the roles of source and destination to Array1 and Array2
         ArrayList<Integer>[] source = Array1;
-        counter++;
+        counter++;                                          // <counter> assignment
         ArrayList<Integer>[] destination = Array2;
-        counter++;
+        counter++;                                          // <counter> assignment
 
         for (int i=1; i<k; i++){
+            counter += 3;                                   // <counter> for loop (1 assignment, 1 comparison, 1 op)
             passes++;
-            int divisor = (int)Math.pow(10,i);      // exponentiation
-            counter += 2;
+            int divisor = (int)Math.pow(10,i);
+            counter += 2;                                   // <counter> assignment + function call
 
             // For each number in the source array, move the numbers from source to destination
             // based on their ith digit
