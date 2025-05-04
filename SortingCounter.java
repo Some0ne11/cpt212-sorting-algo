@@ -63,15 +63,15 @@ public class SortingCounter {
             // based on their ith digit
             for (ArrayList<Integer> bucket:source){
                 for(int x:bucket){
-                    int digit = x/divisor % 10;     // arithmetic
+                    int digit = x/divisor % 10;             // arithmetic
                     counter += 2;
 
-                    destination[digit].add(x);      // Move to destination
+                    destination[digit].add(x);              // Move to destination
                     counter++;
-                    counter++;                      // inner loop iteration
+                    counter++;                              // inner loop iteration
 
                 }
-                counter++;                          // outer loop iteration
+                counter++;                                  // TODO not sure how to count outer loop iteration
             }
 
             printBuckets(destination, (i % 2 == 0) ? 1 : 2, passes);
@@ -80,26 +80,28 @@ public class SortingCounter {
             for(ArrayList<Integer> bucket:source){
                 bucket.clear();
                 counter++;
-                counter++;      // loop iteration
+                counter++;                                  // loop iteration
             }
 
             // Swap the roles of the source and destination arrays
             ArrayList<Integer>[] temp = source;
             source = destination;
             destination = temp;
-            counter += 3;
+            counter += 3;                                   // <counter> 3 assignments
         }
 
         // 3. Reorder
         // Move the sorted numbers from final destination back to original array S
         int index = 0;
+        counter++;                                          // <counter> 1 assignment
+
         for (ArrayList<Integer> bucket:source){
             for(int x:bucket){
                 S[index++] = x;
-                counter += 2;           // assignment + increment
-                counter++;              // inner loop
+                counter += 2;                               // assignment + increment
+                counter++;                                  // inner loop
             }
-            counter++;                  // outer loop
+            counter++;                                      // outer loop
         }
 
         System.out.println("Total primitive operations: " + counter);
@@ -115,6 +117,7 @@ public class SortingCounter {
         System.out.println();
     }
 
+    // Main body executions
     public static void main(String[]args){
         int[] S = {275, 87, 426, 61, 409, 170, 677, 503};
         System.out.println("Original array: " + Arrays.toString(S));
