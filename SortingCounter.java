@@ -39,7 +39,6 @@ public class SortingCounter {
         for (int x:S){                                      // equivalent to: for (int i = 0; i < S.length; i++){int x = S[i];}
             counter += 5;                                   /* <counter> for loop (1 assignment, 1 comparison, 1 arithmetic +
                                                                                     assignment + array lookup S[]) */
-
             int i = x % 10;
             counter += 2;                                   // <counter> assignment + arithmetic (modulo)
 
