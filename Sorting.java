@@ -81,6 +81,8 @@ public class Sorting{
     
     public static void main(String[]args){
         int[] S = {275, 87, 426, 61, 409, 170, 677, 503};
+        // TODO make it as user input
+
         System.out.println("Original array: " + Arrays.toString(S));
         Sorting(S);
         System.out.println("Sorted array: " + Arrays.toString(S));
