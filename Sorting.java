@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-
+import java.util.Scanner;
+import java.util.InputMismatchException;
 public class Sorting{
     public static void Sorting(int [] S)
     {
@@ -81,11 +82,44 @@ public class Sorting{
 
     // Main body executions
     public static void main(String[]args){
-        int[] S = {275, 87, 426, 61, 409, 170, 677, 503};
-        // TODO make it as user input
+        Scanner scanner = new Scanner(System.in);
+        try {
+            // Ask for array size
+            System.out.print("Enter number of elements: ");
+            int n = scanner.nextInt();
 
-        System.out.println("Original array: " + Arrays.toString(S));
-        Sorting(S);
-        System.out.println("Sorted array: " + Arrays.toString(S));
+            if (n <= 0) {
+                throw new IllegalArgumentException("Array size must be a positive number.");
+            }
+
+            int[] S = new int[n];
+
+            // Get user input for each element with validation
+            for (int i = 0; i < n; i++) {
+                while (true) {
+                    System.out.print("Enter non-negative number " + (i + 1) + ": ");
+                    int input = scanner.nextInt();
+
+                    if (input < 0) {
+                        System.out.println("Please enter nonnegative integers.");
+                    } else {
+                        S[i] = input;
+                        break;
+                    }
+                }
+            }
+
+            System.out.println("Original array: " + Arrays.toString(S));
+            Sorting(S);
+            System.out.println("Sorted array: " + Arrays.toString(S));
+        } catch (InputMismatchException e) {
+            System.out.println("Please enter valid integers only.");
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.out.println("An unexpected error occurred: " + e.getMessage());
+        } finally {
+            scanner.close();
+        }
     }
 }
