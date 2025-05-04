@@ -65,7 +65,7 @@ public class SortingCounter {
                     counter += 3;                           // <counter> assignment + 2 arithmetics (division and modulo)
 
                     destination[digit].add(x);              // Move to destination
-                    counter += 1;                           // <counter> array lookup + method call add()
+                    counter += 2;                           // <counter> array lookup + method call add()
                 }
             }
             counter += 4;                                   // <counter> function call + arithmetic + comparison + ternary op
