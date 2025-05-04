@@ -4,32 +4,33 @@ import java.util.Arrays;
 public class SortingCounter {
     public static void SortingCount(int[] S) {
 
-        int passes = 0;                                         // To calculate the number of passes
+        int passes = 0;                                     // To calculate the number of passes
 
-        int counter = 0;                                        // Counter for primitive operations
+        int counter = 0;                                    // Counter for primitive operations
 
         // Get max and digit length
-        int max = Arrays.stream(S).max().getAsInt();            // stream + max + getAsInt
-        counter += S.length + 1 + 1;                            // estimate: stream traverses once + max + getAsInt
+        int max = Arrays.stream(S).max().getAsInt();        // stream + max + getAsInt
+        counter += S.length + 1 + 1;                        // <counter> estimate: stream traverses once + max + getAsInt
 
-        int k = Integer.toString(max).length();                 // string conversion + length
-        counter += (int)(Math.log10(max) + 1);                  // estimate for length of number
+        int k = Integer.toString(max).length();             // string conversion + length
+        counter += (int)(Math.log10(max) + 1);              // <counter> estimates for length of number
 
         // 1. Initialize
         // Create two arrays Array1 and Array2 of size 10 (for digits 0 to 9)
         ArrayList<Integer>[] Array1 = new ArrayList[10];
-        counter++;
+        counter++;                                          // <counter> assignment
 
         ArrayList<Integer>[] Array2 = new ArrayList[10];
-        counter++;
+        counter++;                                          // <counter> assignment
 
         for (int i=0; i<10; i++){
-            Array1[i] = new ArrayList<>();
-            counter++;
-            Array2[i] = new ArrayList<>();
-            counter++;
+            counter += 3;                                   // <counter> for loop (1 assignment, 1 compare, 1 operation)
 
-            counter += 2;               // loop check + increment
+            Array1[i] = new ArrayList<>();
+            counter += 2;                                   // <counter> array lookup + assignment
+
+            Array2[i] = new ArrayList<>();
+            counter += 2;                                   // <counter> array lookup + assignment
         }
 
         // 2. Iteration
