@@ -40,7 +40,7 @@ public class Sorting{
             // based on their ith digit
             for (ArrayList<Integer> bucket:source){
                 for(int x:bucket){
-                    int digit = x/divisor % 10; // get the ith digit
+                    int digit = x/divisor % 10; // get the i-th digit
                     destination[digit].add(x);// Move to destination
 
                 }
