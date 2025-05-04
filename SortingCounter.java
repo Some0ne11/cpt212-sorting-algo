@@ -24,16 +24,12 @@ public class SortingCounter {
             counter += 3;                                   // <counter> for loop (1 assignment, 1 compare, 1 arithmetic)
 
             Array1[i] = new ArrayList<>();
-            counter += 2;                                   // <counter> array lookup + assignment
-
             Array2[i] = new ArrayList<>();
-            counter += 2;                                   // <counter> array lookup + assignment
+            counter += 4;                                   // <counter> 2 array lookup + 2 assignments
         }
 
         // 2. Iteration
         // Move numbers from S to Array1 based on least significant digits
-
-        // loop below equivalent to:
         for (int x:S){                                      // equivalent to: for (int i = 0; i < S.length; i++){int x = S[i];}
             counter += 5;                                   /* <counter> for loop (1 assignment, 1 comparison, 1 arithmetic +
                                                                                     assignment + array lookup S[]) */
@@ -49,38 +45,37 @@ public class SortingCounter {
 
         // Assign the roles of source and destination to Array1 and Array2
         ArrayList<Integer>[] source = Array1;
-        counter += 1;                                       // <counter> assignment
         ArrayList<Integer>[] destination = Array2;
-        counter += 1;                                       // <counter> assignment
+        counter += 2;                                       // <counter> 2 assignment
 
         for (int i=1; i<k; i++){
-            counter += 3;                                   // <counter> for loop (1 assignment, 1 comparison, 1 op)
+            counter += 3;                                   // <counter> for loop (1 assignment, 1 comparison, 1 arithmetic)
             passes++;
             int divisor = (int)Math.pow(10,i);
-            counter += 2;                                   // <counter> assignment + method call pow()
+            counter += 3;                                   // <counter> assignment + method call pow() + type casting
 
             // For each number in the source array, move the numbers from source to destination
             // based on their ith digit
-            for (ArrayList<Integer> bucket:source){         // equivalent to: for (int bucket =0; bucket<source.length; i++)
+            for (ArrayList<Integer> bucket:source){         // equivalent to: for (int bucket =0; bucket<source.length; bucket++)
+                counter += 3;                               // <counter> for loop (1 assignment, 1 comparison, 1 arithmetic)
                 for(int x:bucket){                          // equivalent to: for (int x =0; x<bucket; x++)
+                    counter += 3;                           // <counter> for loop (1 assignment, 1 comparison, 1 arithmetic)
+
                     int digit = x/divisor % 10;             // get the i-th digit
                     counter += 3;                           // <counter> assignment + 2 arithmetics (division and modulo)
 
                     destination[digit].add(x);              // Move to destination
                     counter += 1;                           // <counter> array lookup + method call add()
-                    counter += 1;                           // TODO recheck this counter inner loop iteration
-
                 }
-                counter++;                                  // TODO not sure how to count outer loop iteration
             }
-
+            counter += 4;                                   // <counter> function call + arithmetic + comparison + ternary op
             printBuckets(destination, (i % 2 == 0) ? 1 : 2, passes);
 
             // Clear the source for the next iteration use
-            for(ArrayList<Integer> bucket:source){          // TODO add counter for this loop
+            for(ArrayList<Integer> bucket:source){          // equivalent to: for (int bucket =0; bucket<source.length; bucket++)
+                counter += 3;                               // <counter> for loop (1 assignment, 1 comparison, 1 arithmetic)
                 bucket.clear();
                 counter += 1;                               // <counter> method call clear()
-                counter++;                                  // loop iteration
             }
 
             // Swap the roles of the source and destination arrays
@@ -95,15 +90,14 @@ public class SortingCounter {
         int index = 0;
         counter += 1;                                       // <counter> 1 assignment
 
-        for (ArrayList<Integer> bucket:source){
-            for(int x:bucket){
+        for (ArrayList<Integer> bucket:source){             // equivalent to: for (int bucket =0; bucket<source.length; bucket++)
+            counter += 3;                                   // <counter> for loop (1 assignment, 1 comparison, 1 arithmetic)
+            for(int x:bucket){                              // equivalent to: for (int x =0; x<bucket; x++)
+                counter += 3;                               // <counter> for loop (1 assignment, 1 comparison, 1 arithmetic)
                 S[index++] = x;
                 counter += 3;                               // <counter> assignment + increment + array lookup
-                counter++;                                  // TODO recheck this counter inner loop
             }
-            counter++;                                      // TODO recheck this counter outer loop
         }
-
         System.out.println("Total primitive operations: " + counter);
     }
 
