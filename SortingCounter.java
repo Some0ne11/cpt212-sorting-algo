@@ -17,10 +17,8 @@ public class SortingCounter {
         // 1. Initialize
         // Create two arrays Array1 and Array2 of size 10 (for digits 0 to 9)
         ArrayList<Integer>[] Array1 = new ArrayList[10];
-        counter += 1;                                       // <counter> assignment
-
         ArrayList<Integer>[] Array2 = new ArrayList[10];
-        counter += 1;                                       // <counter> assignment
+        counter += 2;                                       // <counter> 2 assignment
 
         for (int i=0; i<10; i++){
             counter += 3;                                   // <counter> for loop (1 assignment, 1 compare, 1 arithmetic)
