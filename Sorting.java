@@ -23,7 +23,7 @@ public class Sorting{
 
         // 2. Iteration
         // Move numbers from S to Array1 based on least significant digit
-        for (int x:S){
+        for (int x:S){                                      // equivalent to: for (int i = 0; i < S.length; i++){int x = S[i];}
             int i = x % 10; 
             Array1[i].add(x);
         }
@@ -39,10 +39,10 @@ public class Sorting{
 
             // For each number in the source array, move the numbers from source to destination 
             // based on their ith digit
-            for (ArrayList<Integer> bucket:source){
-                for(int x:bucket){
-                    int digit = x/divisor % 10; // get the i-th digit
-                    destination[digit].add(x);// Move to destination
+            for (ArrayList<Integer> bucket:source){         // equivalent to: for (int bucket =0; bucket<source.length; bucket++)
+                for(int x:bucket){                          // equivalent to: for (int x =0; x<bucket; x++)
+                    int digit = x/divisor % 10;             // get the i-th digit
+                    destination[digit].add(x);              // Move to destination
 
                 }
             }
@@ -50,7 +50,7 @@ public class Sorting{
             printBuckets(destination, (i % 2 == 0) ? 1 : 2, passes);
 
             // Clear the source for the next iteration use
-            for(ArrayList<Integer> bucket:source){
+            for(ArrayList<Integer> bucket:source){          // equivalent to: for (int bucket =0; bucket<source.length; bucket++)
                 bucket.clear();
             }
 
@@ -63,8 +63,8 @@ public class Sorting{
         // 3. Reorder
         // Move the sorted numbers from final destination back to original array S
         int index = 0;
-        for (ArrayList<Integer> bucket:source){
-            for(int x:bucket){
+        for (ArrayList<Integer> bucket:source){             // equivalent to: for (int bucket =0; bucket<source.length; bucket++)
+            for(int x:bucket){                              // equivalent to: for (int x =0; x<bucket; x++)
                 S[index++] = x;
             }
         }
@@ -92,7 +92,7 @@ public class Sorting{
                 throw new IllegalArgumentException("Array size must be a positive number.");
             }
 
-            int[] S = new int[n];
+            int[] S = new int[n];                           // S = {275, 87, 426, 61, 409, 170, 677, 503}
 
             // Get user input for each element with validation
             for (int i = 0; i < n; i++) {
