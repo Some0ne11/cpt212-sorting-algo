@@ -6,11 +6,12 @@ public class WordSorting {
     public static void sortWords(String[] words) {
 
         // ===== 1st Step: Initialization =====
+
         // Find the maximum length of all words
         int maxLength = 0;
-        for (String word : words) {
-            if (word.length() > maxLength) {
-                maxLength = word.length();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > maxLength) {
+                maxLength = words[i].length();
             }
         }
 
@@ -34,6 +35,7 @@ public class WordSorting {
         ArrayList<String>[] destination = array2;
 
         // ===== 2nd Step: Iteration (from rightmost to leftmost character) =====
+
         for (int pos = maxLength - 1; pos >= 0; pos--) {
             // Place words into appropriate buckets based on current character
             for (String word : words) {
@@ -42,25 +44,27 @@ public class WordSorting {
                 destination[index].add(word);
             }
 
-            // Debugging output: view how words are distributed at each position
             printBuckets(destination, (maxLength - pos));
 
-            // ===== 3rd Step: Reorder (flatten buckets into array) =====
-            int idx = 0;
-            for (ArrayList<String> bucket : destination) {
-                for (String w : bucket) {
-                    words[idx++] = w;
-                }
-                bucket.clear(); // clear for next iteration
+            // Clear the source buckets for the next iteration
+            for (ArrayList<String> bucket : source) {
+                bucket.clear();
             }
 
-            // Swap the buckets for the next round
+            // Swap source and destination
             ArrayList<String>[] temp = source;
             source = destination;
             destination = temp;
         }
 
-        // ===== Final Step: Cleanup =====
+        // Final step: Reorder the words from source into the words[] array
+        int idx = 0;
+        for (ArrayList<String> bucket : source) {
+            for (String w : bucket) {
+                words[idx++] = w;
+            }
+        }
+
         // Trim the trailing spaces after sorting
         for (int i = 0; i < words.length; i++) {
             words[i] = words[i].trim();
