@@ -3,8 +3,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 public class Sorting{
-    public static void Sorting(int [] S)
-    {
+    public static void Sorting(int [] S) {
         int passes = 0;
         // Assume all elements of array are positive integer with same length
         // Find the maximum value in the array, convert it into a string to find the length of the string,
