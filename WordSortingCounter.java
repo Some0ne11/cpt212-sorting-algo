@@ -7,19 +7,10 @@ public class WordSortingCounter {
     public static void sortWordsCount(String[] words) {
 
         int counter = 0;                                                    // Counter for primitive operations
+
         // Find the maximum word length
-        int maxLength = 0;
-        counter += 1;                                                       // <counter> assignment
-
-        for (String word : words) {                                         // equivalent to: for (int i = 0; i < words.length; i++)
-            counter += 3;                                                   // <counter> for loop (1 assignment, 1 compare, 1 arithmetic)
-            counter += 3;                                                   // <counter> if condition (array lookup words[i], method call, compare)
-
-            if (word.length() > maxLength) {                                // equivalent to: if (words[i].length() > maxLength)
-                maxLength = word.length();                                  // equivalent to: maxLength = words[i].length();
-                counter += 2;                                               // <counter> assignment + array lookup + method call
-            }
-        }
+        int maxLength = Arrays.stream(words).mapToInt(String::length).max().getAsInt();
+        counter += 5;                                                      // <counter> 4 methods calls + 1 assignment
 
         // ===== 1. Initialization =====
         // Buckets for characters: 0 (space) to 26 (a-z), using Arrays.
