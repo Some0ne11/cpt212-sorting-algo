@@ -144,6 +144,7 @@ public class SortingCounter {
 
             System.out.println("Original array: " + Arrays.toString(S));
             SortingCount(S);
+            System.out.println("Number of elements (n): " + n);
             System.out.println("Sorted array: " + Arrays.toString(S));
         } catch (InputMismatchException e) {
             System.out.println("Please enter valid integers only.");
