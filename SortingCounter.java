@@ -116,14 +116,23 @@ public class SortingCounter {
     // Main body executions
     public static void main(String[]args){
         Scanner scanner = new Scanner(System.in);
-        try {
-            // Ask for array size
-            System.out.print("Enter number of elements: ");
-            int n = scanner.nextInt();
-
-            if (n <= 0) {
-                throw new IllegalArgumentException("Array size must be a positive number.");
+        int n = 0;
+        while (true) {
+            try {
+                System.out.print("Enter number of elements: ");
+                n = scanner.nextInt();
+                if (n <= 0) {
+                    throw new IllegalArgumentException("Array size must be a positive number.");
+                }
+                break; // valid input, break the loop
+            } catch (InputMismatchException e) {
+                System.out.println("Please enter valid integers only.");
+                scanner.next(); // clear the invalid input
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
             }
+        }
+        try {
 
             int[] S = new int[n];                           // S = {275, 87, 426, 61, 409, 170, 677, 503}
 
