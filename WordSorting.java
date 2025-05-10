@@ -4,9 +4,7 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 
 public class WordSorting {
-
     public static void sortWords(String[] words) {
-        // ===== 1. Initialization =====
 
         // Find the maximum word length
         int maxLength = 0;
@@ -16,7 +14,8 @@ public class WordSorting {
             }
         }
 
-        // Buckets for characters: 0 (space) to 26 (a-z)
+        // ===== 1. Initialization =====
+        // Buckets for characters: 0 (space) to 26 (a-z), using Arrays.
         ArrayList<String>[] array1 = new ArrayList[27];
         ArrayList<String>[] array2 = new ArrayList[27];
         for (int i = 0; i < 27; i++) {
@@ -48,7 +47,7 @@ public class WordSorting {
             destination = temp;
         }
 
-        // ===== 3. Copy back sorted values  =====
+        // ===== 3. Reorder: copy back sorted values  =====
         int idx = 0;
         for (ArrayList<String> bucket : source) {
             for (String word : bucket) {
@@ -57,7 +56,7 @@ public class WordSorting {
         }
     }
 
-    // Prints current pass bucket contents
+    // Prints current pass bucket contents (Helper function)
     public static void printBuckets(ArrayList<String>[] buckets, int pass) {
         System.out.println("=== Pass " + pass + " ===");
         System.out.println("Array " + ((pass % 2 == 1) ? 1 : 2) + ":");
@@ -73,7 +72,7 @@ public class WordSorting {
         System.out.println();
     }
 
-    // Main with user input (similar to number sorter)
+    // Main body executions
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         try {
@@ -103,6 +102,7 @@ public class WordSorting {
 
             System.out.println("Original: " + Arrays.toString(words));
             sortWords(words);
+            System.out.println("Number of elements (n): " + n);
             System.out.println("Sorted:   " + Arrays.toString(words));
         } catch (InputMismatchException e) {
             System.out.println("Please enter valid input.");
