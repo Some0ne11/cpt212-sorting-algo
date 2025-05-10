@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class SortingCounter {
     public static void SortingCount(int[] S) {
 
-        int passes = 0;                                     // To calculate the number of passes
+        int passes = 0;                                     // To calculate the number of passes (won't be counted for our total primitive operations)
         int counter = 0;                                    // Counter for primitive operations
 
         // Get max and digit length

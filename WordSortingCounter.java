@@ -8,7 +8,7 @@ public class WordSortingCounter {
 
         int counter = 0;                                                    // Counter for primitive operations
 
-        // Find the maximum word length
+        // Find the maximum word length, L
         int maxLength = Arrays.stream(words).mapToInt(String::length).max().getAsInt();
         counter += 5;                                                      // <counter> 4 methods calls + 1 assignment
 
@@ -70,7 +70,7 @@ public class WordSortingCounter {
 
         for (ArrayList<String> bucket : source) {                           // equivalent to: for (int bucket =0; bucket<source.length; bucket++)
             counter += 3;                                                   // <counter> for loop (1 assignment, 1 compare, 1 arithmetic)
-            for (String word : bucket) {                                    // equivalent to: for (int word =0; word<bucket; word++)
+            for (String word : bucket) {
                 counter += 3;                                               // <counter> for loop (1 assignment, 1 compare, 1 arithmetic)
                 words[idx++] = word;
                 counter += 3;                                               // <counter> assignment + increment + array lookup

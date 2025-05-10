@@ -6,7 +6,7 @@ import java.util.InputMismatchException;
 public class WordSorting {
     public static void sortWords(String[] words) {
 
-        // Find the maximum word length
+        // Find the maximum word length, L
         int maxLength = Arrays.stream(words).mapToInt(String::length).max().getAsInt();
 
         // ===== 1. Initialization =====
