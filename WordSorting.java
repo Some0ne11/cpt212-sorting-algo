@@ -7,12 +7,7 @@ public class WordSorting {
     public static void sortWords(String[] words) {
 
         // Find the maximum word length
-        int maxLength = 0;
-        for (String word : words) {
-            if (word.length() > maxLength) {
-                maxLength = word.length();
-            }
-        }
+        int maxLength = Arrays.stream(words).mapToInt(String::length).max().getAsInt();
 
         // ===== 1. Initialization =====
         // Buckets for characters: 0 (space) to 26 (a-z), using Arrays.
