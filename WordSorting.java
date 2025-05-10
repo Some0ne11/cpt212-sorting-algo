@@ -23,6 +23,7 @@ public class WordSorting {
             array2[i] = new ArrayList<>();
         }
 
+        // Assign the roles of source and destination to array1 and array2
         ArrayList<String>[] source = array1;
         ArrayList<String>[] destination = array2;
 
