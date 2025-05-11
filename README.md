@@ -115,5 +115,5 @@ java WordSortingCounter
 </table>
 
 <p align="center">
-📘 <i>Feel free to fork, contribute, or raise issues to improve this analysis tool.</i>
+📘 <i>Feel free to fork, contribute, or raise issues to improve this algorithm.</i>
 </p>
