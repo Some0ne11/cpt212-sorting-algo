@@ -47,7 +47,7 @@ Ensure you have the following installed:
 Clone the project repository:
 
 ```bash
-git clone https://github.com/your-username/radix-sort-analyzer.git
+git clone https://github.com/Some0ne11/cpt212-sorting-algo.git
 ```
 
 <h3>Running</h3>
