@@ -1,5 +1,5 @@
 
-<h1 align="center" style="font-weight: bold;">📊 Bucket-Based Radix Sort Analyzer</h1>
+<h1 align="center" style="font-weight: bold;">📊 Bucket-Based Radix Sort Algorithm</h1>
 
 <p align="center">
 <a href="#technologies">Technologies</a>
@@ -21,7 +21,6 @@
 <h2 id="technologies">💻 Technologies</h2>
 
 - Java
-- Apache POI (optional for Excel export)
 - Microsoft Excel (for plotting graphs)
 - Git (for version control)
 
@@ -76,20 +75,38 @@ java WordSortingCounter
 - `SortingCounter.java` and `WordSortingCounter.java` are modified versions that count **primitive operations**.
 - Collected data is analyzed and visualized using Microsoft Excel to observe **time complexity trends**.
 - Graphs include:
-    - Number of operations vs input size for Number Sort
-    - Number of operations vs input size for Word Sort
+    - Number of operations, T(n) vs input size, n for Number Sort
+    - Number of operations, T(n) vs input size, n for Word Sort
 
 <h2 id="team">🤝 Team Members</h2>
 
-<p>Special thanks to the contributors of this project.</p>
+<p>Special thanks to all contributors of this project.</p>
 <table>
 <tr>
 
 <td align="center">
-<a href="https://github.com/your-username">
-<img src="https://avatars.githubusercontent.com/u/YOUR_USER_ID?v=4" width="100px;" alt="Profile Picture"/><br>
+<a href="https://github.com/Some0ne11">
+<img src="https://avatars.githubusercontent.com/u/122141550?v=4" width="100px;" alt="Profile Picture"/><br>
 <sub>
-<b>Your Name (Your Student ID)</b>
+<b>Muhammad Ammar Danial (22301793)</b>
+</sub>
+</a>
+</td>
+
+<td align="center">
+<a href="https://github.com/ngxuanhern">
+<img src="https://avatars.githubusercontent.com/u/177940919?v=4" width="100px;" alt="Profile Picture"/><br>
+<sub>
+<b>Ng Xuan Hern (22304061)</b>
+</sub>
+</a>
+</td>
+
+<td align="center">
+<a href="https://github.com/L049XEZ">
+<img src="https://avatars.githubusercontent.com/u/115411319?v=4" width="100px;" alt="Profile Picture"/><br>
+<sub>
+<b>Low Yvonne (22305530)</b>
 </sub>
 </a>
 </td>
