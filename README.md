@@ -12,7 +12,7 @@
 <p align="center">A Java program that implements bucket-based radix sort for sorting numbers and words, with complexity analysis through primitive operation counting and Excel graph plotting.</p>
 
 <p align="center">
-🌐<a href="Graph-Complexity-Analysis.htm" target="_blank" rel="noopener noreferrer">Preview the Graph for Complexity Analysis</a>
+🌐<a href="https://htmlpreview.github.io/?https://github.com/Some0ne11/cpt212-sorting-algo/blob/main/Graph-Complexity-Analysis.htm" target="_blank" rel="noopener noreferrer">Preview the Graph for Complexity Analysis</a>
 </p>
 
 <h2 id="layout">📸 Output Preview</h2>
