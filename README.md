@@ -13,10 +13,12 @@
 
 <h2 id="layout">📸 Output Preview</h2>
 
-<p align="center">
-<img src="assets/sample-output-numbers.png" alt="Radix Sort Numbers Output" width="400px">
-<img src="assets/sample-output-words.png" alt="Radix Sort Words Output" width="400px">
-</p>
+<div align="center">
+<img src="assets/preview-num-sort.png" alt="Radix Sort Numbers Output" width="400px">
+<p align="center">Radix Sort Numbers Output</p>
+<img src="assets/preview-word-sort.png" alt="Radix Sort Words Output" width="400px" >
+<p align="center">Radix Sort Words Output</p>
+</div>
 
 <h2 id="technologies">💻 Technologies</h2>
 
